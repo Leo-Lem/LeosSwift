@@ -2,7 +2,7 @@
 
 import Queries
 
-extension Query.Predicate where ResultType: KeyPathQueryable {
+public extension Query.Predicate where ResultType: KeyPathQueryable {
   init<Value: CVarArg>(
     _ keyPath: PartialKeyPath<ResultType>,
     _ comparison: Comparison = .equal,
