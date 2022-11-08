@@ -2,14 +2,14 @@
 
 public extension Query {
   struct Predicate {
-    let propertyName: String,
-        comparison: Comparison,
-        value: CVarArg
+    public let propertyName: String,
+               comparison: Comparison,
+               value: CVarArg
 
-    public init<Value: CVarArg>(
+    public init(
       _ propertyName: String,
       _ comparison: Comparison = .equal,
-      _ value: Value
+      _ value: CVarArg
     ) {
       self.propertyName = propertyName
       self.comparison = comparison

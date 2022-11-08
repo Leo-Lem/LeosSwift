@@ -20,10 +20,10 @@ public extension Query {
     self.init(predicates, compound: compound, options: options)
   }
 
-  init<Value: CVarArg>(
+  init(
     _ propertyName: String,
     _ comparison: Predicate.Comparison = .equal,
-    _ value: Value,
+    _ value: CVarArg,
     options: Options = Options()
   ) {
     self.init(
