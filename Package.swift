@@ -6,16 +6,20 @@ let package = Package(
   name: "Queries",
   platforms: [.iOS(.v15)],
   products: [
-    .library(name: "Queries", targets: ["Queries"]),
+    .library(name: "Queries", targets: ["Queries", "Queries.KeyPath", "Queries.NSPredicate"])
   ],
   dependencies: [],
   targets: [
     .target(name: "Queries"),
     .target(
-      name: "Queries-KeyPath",
+      name: "Queries.KeyPath",
       dependencies: ["Queries"],
       path: "Sources/KeyPathQueries"
     ),
-    .testTarget(name: "QueriesTests", dependencies: ["Queries"])
+    .target(
+      name: "Queries.NSPredicate",
+      dependencies: ["Queries"],
+      path: "Sources/NSPredicate"
+    )
   ]
 )
