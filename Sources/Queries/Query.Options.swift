@@ -2,7 +2,7 @@
 
 public extension Query {
   struct Options {
-    let maxItems: Int?
+    public let maxItems: Int?
 
     public init(
       maxItems: Int? = nil

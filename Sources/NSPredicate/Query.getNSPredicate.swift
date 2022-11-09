@@ -3,8 +3,8 @@
 import CoreData
 import Queries
 
-extension Query {
-  public func getNSPredicate() -> NSPredicate {
+public extension Query {
+  func getNSPredicate() -> NSPredicate {
     switch predicateType {
     case let .bool(bool):
       return NSPredicate(value: bool)
