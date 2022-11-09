@@ -4,7 +4,6 @@ import PackageDescription
 
 let package = Package(
   name: "Queries",
-  platforms: [.iOS(.v15), .macOS(.v13)],
   products: [
     .library(name: "Queries", targets: ["Queries", "Queries.KeyPath", "Queries.NSPredicate"])
   ],
