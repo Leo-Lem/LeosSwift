@@ -31,7 +31,7 @@ final class TasksTests: XCTestCase {
   
   @available(iOS 16, macOS 13, *)
   func testTasksAreCancelledOnDeinit() {
-    let task = Task<Void, Never> { await sleep(for: .seconds(10)) }
+    let task = Task<Void, Never> { await sleep(for: 10) }
     
     tasks.add(task)
     tasks["task1"] = task
