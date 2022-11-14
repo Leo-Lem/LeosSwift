@@ -29,7 +29,7 @@ final class TasksTests: XCTestCase {
     XCTAssertNil(tasks.tasksWithID["task1"], "Task was not removed.")
   }
   
-  @available(iOS 16, macOS 12, *)
+  @available(iOS 16, macOS 13, *)
   func testTasksAreCancelledOnDeinit() {
     let task = Task<Void, Never> { await sleep(for: .seconds(10)) }
     
