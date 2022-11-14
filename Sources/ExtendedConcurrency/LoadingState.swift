@@ -7,8 +7,8 @@ public enum LoadingState<T> {
        failed(Error?)
 }
 
-public extension LoadingState: Equatable where T: Equatable {
-  static func == (lhs: LoadingState<T>, rhs: LoadingState<T>) -> Bool {
+extension LoadingState: Equatable where T: Equatable {
+  public static func == (lhs: LoadingState<T>, rhs: LoadingState<T>) -> Bool {
     switch (lhs, rhs) {
     case (.idle, .idle):
       return true
