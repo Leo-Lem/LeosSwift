@@ -16,9 +16,4 @@ public extension Query where ResultType: KeyPathQueryable {
       options: options
     )
   }
-
-  @available(macOS 10.15, iOS 13, *)
-  init(id: CVarArg, options: Options = Options()) where ResultType: Identifiable {
-    self.init(\ResultType.id, .equal, id, options: options)
-  }
 }
