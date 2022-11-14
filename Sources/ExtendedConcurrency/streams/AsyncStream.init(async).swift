@@ -12,7 +12,8 @@ public extension AsyncStream {
     build: @escaping (Continuation) async -> Void
   ) {
     self.init(elementType, bufferingPolicy: bufferingPolicy) { continuation in
-      Task { await build(continuation) }
+      let task = Task { await build(continuation) }
+      continuation.onTermination = { @Sendable _ in task.cancel() }
     }
   }
 }
@@ -29,7 +30,8 @@ public extension AsyncThrowingStream {
     build: @escaping (Continuation) async -> Void
   ) where Failure == any Error {
     self.init(elementType, bufferingPolicy: bufferingPolicy) { continuation in
-      Task { await build(continuation) }
+      let task = Task { await build(continuation) }
+      continuation.onTermination = { @Sendable _ in task.cancel() }
     }
   }
 }

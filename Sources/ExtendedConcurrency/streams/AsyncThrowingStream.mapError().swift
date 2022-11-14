@@ -7,6 +7,8 @@ public extension AsyncThrowingStream {
         for try await element in self {
           continuation.yield(element)
         }
+        
+        continuation.finish()
       } catch {
         continuation.finish(throwing: transform(error))
       }
