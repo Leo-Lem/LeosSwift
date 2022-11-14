@@ -2,14 +2,14 @@
 
 /// A collection of tasks, which primarily handles cancelling tasks on deinitialization
 public class Tasks<Key: Hashable> {
-  private var tasks = [Key: Task<Any, Error>](),
-              anonymousTasks = [Task<Any, Error>]()
+  var tasksWithID = [Key: CancellableTask](),
+      anonymousTasks = [CancellableTask]()
 
   public init() {}
-  
+
   deinit {
     for task in anonymousTasks { task.cancel() }
-    for (_, task) in tasks { task.cancel() }
+    for (_, task) in tasksWithID { task.cancel() }
   }
 }
 
@@ -17,22 +17,22 @@ public class Tasks<Key: Hashable> {
 public extension Tasks {
   /// Add a task anonymously (e.g., when you don' t care about manually stopping it)
   /// - Parameter tasks: Variadic argument of tasks.
-  func add(_ tasks: Task<Any, Error>...) { add(tasks) }
+  func add(_ tasks: CancellableTask...) { add(tasks) }
 
   /// Add a task anonymously (e.g., when you don' t care about manually stopping it)
   /// - Parameter tasks: An array of tasks.
-  func add(_ tasks: [Task<Any, Error>]) {
+  func add(_ tasks: [CancellableTask]) {
     for task in tasks { anonymousTasks.append(task) }
   }
 }
 
 // id tasks
-public extension Tasks {
-  subscript(_ key: Key) -> Task<Any, Error>? {
-    get { tasks[key] }
+ public extension Tasks {
+  subscript(_ key: Key) -> CancellableTask? {
+    get { tasksWithID[key] }
     set {
-      tasks[key]?.cancel()
-      tasks[key] = newValue
+      tasksWithID[key]?.cancel()
+      tasksWithID[key] = newValue
     }
   }
-}
+ }
