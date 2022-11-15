@@ -3,19 +3,9 @@
 import Foundation
 
 @discardableResult
-func printError<T>(_ action: () throws -> T?) -> T? {
+public func printError<T>(_ throwing: () throws -> T?) -> T? {
   do {
-    return try action()
-  } catch {
-    debugPrint(error.localizedDescription)
-  }
-  return nil
-}
-
-@discardableResult
-func printError<T>(_ action: () throws -> T) -> T? {
-  do {
-    return try action()
+    return try throwing()
   } catch {
     debugPrint(error.localizedDescription)
   }
@@ -25,20 +15,9 @@ func printError<T>(_ action: () throws -> T) -> T? {
 // async variants
 
 @discardableResult
-func printError<T>(_ action: () async throws -> T) async -> T? {
+public func printError<T>(_ throwing: () async throws -> T) async -> T? {
   do {
-    return try await action()
-  } catch {
-    debugPrint(error.localizedDescription)
-  }
-  return nil
-}
-
-
-@discardableResult
-func printError<T>(_ action: () async throws -> T?) async -> T? {
-  do {
-    return try await action()
+    return try await throwing()
   } catch {
     debugPrint(error.localizedDescription)
   }

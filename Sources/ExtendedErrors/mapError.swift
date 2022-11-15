@@ -1,35 +1,35 @@
 //	Created by Leopold Lemmermann on 08.11.22.
 
 @discardableResult
-func mapError<T>(
+public func mapError<T>(
   _ transform: (Error) -> Error,
-  action: () throws -> T
+  throwing: () throws -> T
 ) rethrows -> T {
-  do { return try action() } catch { throw transform(error) }
+  do { return try throwing() } catch { throw transform(error) }
 }
 
 @discardableResult
-func mapError<T>(
+public func mapError<T>(
   to error: Error,
-  action: () throws -> T
+  throwing: () throws -> T
 ) rethrows -> T {
-  try mapError({ _ in error }, action: action)
+  try mapError({ _ in error }, throwing: throwing)
 }
 
 // async variants
 
 @discardableResult
-func mapError<T>(
+public func mapError<T>(
   _ transform: (Error) -> Error,
-  action: () async throws -> T
+  throwing: () async throws -> T
 ) async rethrows -> T {
-  do { return try await action() } catch { throw transform(error)  }
+  do { return try await throwing() } catch { throw transform(error) }
 }
 
 @discardableResult
-func mapError<T>(
+public func mapError<T>(
   to error: Error,
-  action: () async throws -> T
+  throwing: () async throws -> T
 ) async rethrows -> T {
-  try await mapError({ _ in error }, action: action)
+  try await mapError({ _ in error }, throwing: throwing)
 }

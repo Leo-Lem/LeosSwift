@@ -6,6 +6,13 @@ final class ExtendedErrorsTests: XCTestCase {
     printError {
       throw ExampleError.sumTingWong
     }
+    
+    let string = "HELLO"
+    let result = printError {
+      string
+    }
+    
+    XCTAssertEqual(result, string, "The returned result does not equal the input.")
   }
   
   func testMappingError() {
