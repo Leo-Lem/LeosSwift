@@ -14,6 +14,7 @@ public func printError<T>(_ throwing: () throws -> T?) -> T? {
 
 // async variants
 
+@_disfavoredOverload
 @discardableResult
 public func printError<T>(_ throwing: () async throws -> T) async -> T? {
   do {
