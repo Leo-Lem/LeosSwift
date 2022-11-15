@@ -1,3 +1,3 @@
-# Extended Concurrency
+# Concurrency
 
 Contains some extensions of various concurrency types.

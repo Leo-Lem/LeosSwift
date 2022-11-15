@@ -3,20 +3,20 @@
 import PackageDescription
 
 let package = Package(
-  name: "Extended Concurrency",
+  name: "Concurrency",
   platforms: [.iOS(.v13), .macOS(.v10_15)],
   products: [
     .library(
-      name: "ExtendedConcurrency",
-      targets: ["ExtendedConcurrency"]
+      name: "Concurrency",
+      targets: ["Concurrency"]
     )
   ],
   dependencies: [],
   targets: [
-    .target(name: "ExtendedConcurrency"),
+    .target(name: "Concurrency"),
     .testTarget(
-      name: "ExtendedConcurrencyTests",
-      dependencies: ["ExtendedConcurrency"],
+      name: "ConcurrencyTests",
+      dependencies: ["Concurrency"],
       path: "Tests"
     )
   ]
