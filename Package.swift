@@ -3,22 +3,22 @@
 import PackageDescription
 
 let package = Package(
-  name: "Extended Errors",
+  name: "Errors",
   platforms: [.iOS(.v13), .macOS(.v10_15)],
   products: [
     .library(
-      name: "ExtendedErrors",
-      targets: ["ExtendedErrors"]
+      name: "Errors",
+      targets: ["Errors"]
     )
   ],
   dependencies: [],
   targets: [
     .target(
-      name: "ExtendedErrors"
+      name: "Errors"
     ),
     .testTarget(
-      name: "ExtendedErrorsTests",
-      dependencies: ["ExtendedErrors"],
+      name: "ErrorsTests",
+      dependencies: ["Errors"],
       path: "Tests"
     )
   ]

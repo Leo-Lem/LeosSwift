@@ -1,7 +1,7 @@
-@testable import ExtendedErrors
+@testable import Errors
 import XCTest
 
-final class ExtendedErrorsTests: XCTestCase {
+final class ErrorsTests: XCTestCase {
   func testPrintingError() {
     printError {
       throw ExampleError.sumTingWong

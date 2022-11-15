@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ExtendedErrors"
-               BuildableName = "ExtendedErrors"
-               BlueprintName = "ExtendedErrors"
+               BlueprintIdentifier = "Errors"
+               BuildableName = "Errors"
+               BlueprintName = "Errors"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,23 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ExtendedErrorsTests"
-               BuildableName = "ExtendedErrorsTests"
-               BlueprintName = "ExtendedErrorsTests"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ExtendedErrors"
-               BuildableName = "ExtendedErrors"
-               BlueprintName = "ExtendedErrors"
+               BlueprintIdentifier = "ErrorsTests"
+               BuildableName = "ErrorsTests"
+               BlueprintName = "ErrorsTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -60,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ExtendedErrorsTests"
-               BuildableName = "ExtendedErrorsTests"
-               BlueprintName = "ExtendedErrorsTests"
+               BlueprintIdentifier = "ErrorsTests"
+               BuildableName = "ErrorsTests"
+               BlueprintName = "ErrorsTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -88,9 +74,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ExtendedErrors"
-            BuildableName = "ExtendedErrors"
-            BlueprintName = "ExtendedErrors"
+            BlueprintIdentifier = "Errors"
+            BuildableName = "Errors"
+            BlueprintName = "Errors"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
