@@ -7,6 +7,13 @@
 
 import Foundation
 
-public func sleep(for seconds: Double) async {
-  try? await Task.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
+public func sleep<T: Numeric>(for seconds: T) async {
+  switch seconds * 1_000_000_000 {
+  case let float as any BinaryFloatingPoint:
+    try? await Task.sleep(nanoseconds: UInt64(Double(float)))
+  case let int as any BinaryInteger:
+    try? await Task.sleep(nanoseconds: UInt64(int))
+  default:
+    return
+  }
 }

@@ -9,7 +9,7 @@ public class Tasks<Key: Hashable> {
 
   deinit {
     for task in anonymousTasks { task.cancel() }
-    for (_, task) in tasksWithID { task.cancel() }
+    for task in tasksWithID.values { task.cancel() }
   }
 }
 
