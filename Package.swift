@@ -3,22 +3,23 @@
 import PackageDescription
 
 let package = Package(
-  name: "PACKAGE",
+  name: "Previews",
   platforms: [.iOS(.v13), .macOS(.v10_15)],
   products: [
     .library(
-      name: "PACKAGE",
-      targets: ["TARGET"]
+      name: "Previews",
+      targets: ["Previews"]
     )
   ],
   dependencies: [],
   targets: [
     .target(
-      name: "TARGET"
+      name: "Previews",
+      path: "Sources"
     ),
     .testTarget(
-      name: "TESTTARGET",
-      dependencies: ["TARGET"],
+      name: "PreviewsTests",
+      dependencies: ["Previews"],
       path: "Tests"
     )
   ]

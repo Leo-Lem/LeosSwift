@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  SCHEME: "PACKAGE"
+  SCHEME: "Previews"
 
 jobs:
   buildAndTest-Swift:

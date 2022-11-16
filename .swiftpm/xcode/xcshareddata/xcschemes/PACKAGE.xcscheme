@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PACKAGE"
-               BuildableName = "PACKAGE"
-               BlueprintName = "PACKAGE"
+               BlueprintIdentifier = "Previews"
+               BuildableName = "Previews"
+               BlueprintName = "Previews"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "TESTTARGET"
-               BuildableName = "TESTTARGET"
-               BlueprintName = "TESTTARGET"
+               BlueprintIdentifier = "PreviewsTests"
+               BuildableName = "PreviewsTests"
+               BlueprintName = "PreviewsTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "TARGET"
-               BuildableName = "TARGET"
-               BlueprintName = "TARGET"
+               BlueprintIdentifier = "Previews"
+               BuildableName = "Previews"
+               BlueprintName = "Previews"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -60,9 +60,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "TESTTARGET"
-               BuildableName = "TESTTARGET"
-               BlueprintName = "TESTTARGET"
+               BlueprintIdentifier = "PreviewsTests"
+               BuildableName = "PreviewsTests"
+               BlueprintName = "PreviewsTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -88,9 +88,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "PACKAGE"
-            BuildableName = "PACKAGE"
-            BlueprintName = "PACKAGE"
+            BlueprintIdentifier = "Previews"
+            BuildableName = "Previews"
+            BlueprintName = "Previews"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
