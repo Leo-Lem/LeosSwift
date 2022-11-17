@@ -13,7 +13,10 @@ let package = Package(
   ],
   dependencies: [],
   targets: [
-    .target(name: "Concurrency"),
+    .target(
+      name: "Concurrency",
+      path: "Sources"
+    ),
     .testTarget(
       name: "ConcurrencyTests",
       dependencies: ["Concurrency"],

@@ -8,7 +8,7 @@ class CollectionsTests: XCTestCase {
     let items = [1, 2, 3]
 
     let newItems = await items.map { item in
-      await sleep(for: 0.1)
+      await sleep(for: .seconds(0.1))
       return item + 1
     }
 
@@ -22,7 +22,7 @@ class CollectionsTests: XCTestCase {
     let items = [1, 2, 3, nil]
 
     let newItems = await items.compactMap { item in
-      await sleep(for: 0.1)
+      await sleep(for: .seconds(0.1))
       return item
     }
 
@@ -38,7 +38,7 @@ class CollectionsTests: XCTestCase {
     var count = 0
     
     await items.forEach { item in
-      await sleep(for: 0.1)
+      await sleep(for: .seconds(0.1))
       count += 1
     }
 

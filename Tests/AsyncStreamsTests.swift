@@ -8,7 +8,7 @@ final class AsyncStreamsTests: XCTestCase {
     let stream = AsyncStream { continuation in
       for i in 0..<10 {
         continuation.yield(i)
-        await sleep(for: 0.1)
+        await sleep(for: .seconds(0.1))
       }
 
       continuation.finish()
@@ -23,7 +23,7 @@ final class AsyncStreamsTests: XCTestCase {
     let stream = AsyncStream { continuation in
       for i in 0..<10 {
         continuation.yield(i)
-        await sleep(for: 0.1)
+        await sleep(for: .seconds(0.1))
       }
 
       continuation.finish()
@@ -36,7 +36,7 @@ final class AsyncStreamsTests: XCTestCase {
     let stream = AsyncThrowingStream { continuation in
       for i in 0..<10 {
         continuation.yield(i)
-        await sleep(for: 0.1)
+        await sleep(for: .seconds(0.1))
       }
 
       continuation.finish()
