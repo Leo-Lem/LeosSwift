@@ -14,7 +14,8 @@ let package = Package(
   dependencies: [],
   targets: [
     .target(
-      name: "Errors"
+      name: "Errors",
+      path: "Sources"
     ),
     .testTarget(
       name: "ErrorsTests",
