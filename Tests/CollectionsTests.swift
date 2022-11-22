@@ -47,4 +47,15 @@ class CollectionsTests: XCTestCase {
       "The async for each executes an unexpected number of times."
     )
   }
+  
+  func testAsyncFlatMap() async throws {
+    let optional: Int? = 0
+    
+    let mapped = await optional.flatMap { wrapped in
+      await sleep(for: .seconds(0.1))
+      return wrapped >= 10
+    }
+    
+    XCTAssertEqual(mapped, false, "The flat map resulted in unexpected value.")
+  }
 }
