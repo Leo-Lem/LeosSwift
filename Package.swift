@@ -6,11 +6,12 @@ import PackageDescription
 
 let lib = Target.target(
   name: "LeosMisc",
+  dependencies: ["Previews"],
   path: "Sources"
 )
 
 let tests = Target.testTarget(
-  name: "LeosMiscTests",
+  name: "\(lib.name)Tests",
   dependencies: [.target(name: lib.name)],
   path: "Tests"
 )
@@ -18,9 +19,13 @@ let tests = Target.testTarget(
 // MARK: - (PRODUCTS)
 
 let library = Product.library(
-  name: "LeosMisc",
+  name: lib.name,
   targets: [lib.name]
 )
+
+// MARK: - (DEPENDENCIES)
+
+let previews = Package.Dependency.package(url: "https://github.com/Leo-Lem/Previews", branch: "main")
 
 // MARK: - (PACKAGE)
 
@@ -28,6 +33,6 @@ let package = Package(
   name: library.name,
   platforms: [.iOS(.v13), .macOS(.v10_15)],
   products: [library],
-  dependencies: [],
+  dependencies: [previews],
   targets: [lib, tests]
 )

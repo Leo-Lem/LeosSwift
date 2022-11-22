@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "previews",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Leo-Lem/Previews",
+      "state" : {
+        "branch" : "main",
+        "revision" : "762cbcab3fdfc298d3ca14e8abe3cade78193c22"
+      }
+    }
+  ],
+  "version" : 2
+}
