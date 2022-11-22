@@ -2,25 +2,32 @@
 
 import PackageDescription
 
-let package = Package(
+// MARK: - (TARGETS)
+
+let lib = Target.target(
   name: "Errors",
+  path: "Sources"
+)
+
+let tests = Target.testTarget(
+  name: "\(lib.name)Tests",
+  dependencies: [.target(name: lib.name)],
+  path: "Tests"
+)
+
+// MARK: - (PRODUCTS)
+
+let library = Product.library(
+  name: lib.name,
+  targets: [lib.name]
+)
+
+// MARK: - (PACKAGE)
+
+let package = Package(
+  name: library.name,
   platforms: [.iOS(.v13), .macOS(.v10_15)],
-  products: [
-    .library(
-      name: "Errors",
-      targets: ["Errors"]
-    )
-  ],
+  products: [library],
   dependencies: [],
-  targets: [
-    .target(
-      name: "Errors",
-      path: "Sources"
-    ),
-    .testTarget(
-      name: "ErrorsTests",
-      dependencies: ["Errors"],
-      path: "Tests"
-    )
-  ]
+  targets: [lib, tests]
 )

@@ -7,7 +7,7 @@ public func printError<T>(_ throwing: () throws -> T?) -> T? {
   do {
     return try throwing()
   } catch {
-    debugPrint(error.localizedDescription)
+    print(error.localizedDescription)
   }
   return nil
 }
@@ -20,7 +20,7 @@ public func printError<T>(_ throwing: () async throws -> T) async -> T? {
   do {
     return try await throwing()
   } catch {
-    debugPrint(error.localizedDescription)
+    print(error.localizedDescription)
   }
   return nil
 }

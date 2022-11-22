@@ -24,4 +24,16 @@ final class ErrorsTests: XCTestCase {
       XCTAssertEqual(error as? ExampleError, ExampleError.sumTingElseWong, "The error wasn't mapped...")
     }
   }
+  
+  func testWritingError() {
+    do {
+      var error = ExampleError.sumTingWong
+      
+      try writeError(to: &error) {
+        throw ExampleError.sumTingElseWong
+      }
+      
+      XCTAssertEqual(error, .sumTingElseWong, "The error wasn't written.")
+    } catch {}
+  }
 }
