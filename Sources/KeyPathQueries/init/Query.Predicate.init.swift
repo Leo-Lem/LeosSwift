@@ -3,11 +3,18 @@
 import Queries
 
 public extension Query.Predicate where ResultType: KeyPathQueryable {
-  init<Value: CVarArg>(
+  init<Value>(
     _ keyPath: PartialKeyPath<ResultType>,
     _ comparison: Comparison = .equal,
     _ value: Value
   ) {
-    self.init(keyPath.propertyName!, comparison, value)
+    self.init(keyPath.property, comparison, keyPath.mapValue(value))
+  }
+  
+  init<Value>(
+    _ keyPath: PartialKeyPath<ResultType>,
+    _ value: Value
+  ) {
+    self.init(keyPath.property, .equal, keyPath.mapValue(value))
   }
 }

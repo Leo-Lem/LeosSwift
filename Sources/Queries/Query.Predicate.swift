@@ -2,16 +2,17 @@
 
 public extension Query {
   struct Predicate {
-    public let propertyName: String,
+    public let name: String,
                comparison: Comparison,
-               value: CVarArg
+               value: Any
 
-    public init(
-      _ propertyName: String,
-      _ comparison: Comparison = .equal,
-      _ value: CVarArg
+    public init<Value>(_ name: String, _ value: Value) { self.init(name, .equal, value) }
+    public init<Value>(
+      _ name: String,
+      _ comparison: Comparison,
+      _ value: Value
     ) {
-      self.propertyName = propertyName
+      self.name = name
       self.comparison = comparison
       self.value = value
     }

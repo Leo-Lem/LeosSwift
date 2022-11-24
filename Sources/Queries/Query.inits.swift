@@ -19,15 +19,17 @@ public extension Query {
   init(_ predicates: Predicate..., compound: Compound, options: Options = Options()) {
     self.init(predicates, compound: compound, options: options)
   }
+  
+  init<Value>(_ name: String, _ value: Value, options: Options = Options()) { self.init(name, .equal, value) }
 
-  init(
-    _ propertyName: String,
-    _ comparison: Predicate.Comparison = .equal,
-    _ value: CVarArg,
+  init<Value>(
+    _ name: String,
+    _ comparison: Predicate.Comparison,
+    _ value: Value,
     options: Options = Options()
   ) {
     self.init(
-      .predicate(Predicate(propertyName, comparison, value)),
+      .predicate(Predicate(name, comparison, value)),
       options: options
     )
   }

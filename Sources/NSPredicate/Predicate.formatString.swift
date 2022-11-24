@@ -4,6 +4,6 @@ import Queries
 
 extension Query.Predicate {
   var formatString: String {
-    "\(propertyName) \(comparison.symbol) \(value.replacementSymbol)"
+    "\(name) \(comparison.symbol) \(replacementSymbol)"
   }
 }
