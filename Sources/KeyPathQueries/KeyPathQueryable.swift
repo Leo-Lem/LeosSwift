@@ -4,11 +4,11 @@ import Foundation
 
 public protocol KeyPathQueryable {
   static var propertyNames: [PartialKeyPath<Self>: String] { get }
-  static func mapValue<I>(for keyPath: PartialKeyPath<Self>, input: I) -> Any
+  static func mapValue<I>(for keyPath: KeyPath<Self, I>, input: I) -> Any
 }
 
 public extension KeyPathQueryable {
-  static func mapValue<I>(for keyPath: PartialKeyPath<Self>, input: I) -> Any { input }
+  static func mapValue<I>(for keyPath: KeyPath<Self, I>, input: I) -> Any { input }
 }
 
 public extension PartialKeyPath where Root: KeyPathQueryable {
@@ -20,5 +20,11 @@ public extension PartialKeyPath where Root: KeyPathQueryable {
     }
   }
 
-  func mapValue<I>(_ input: I) -> Any { Root.mapValue(for: self, input: input) }
+  func mapValue<I>(_ input: I) -> Any {
+    if let keyPath = self as? KeyPath<Root, I> {
+      return Root.mapValue(for: keyPath, input: input)
+    } else {
+      return input
+    }
+  }
 }

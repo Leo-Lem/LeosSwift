@@ -21,6 +21,10 @@ class KeyPathQueriesTests: XCTestCase {
       XCTFail("Query does not have correct type.")
     }
   }
+  
+  func testMappingValue() {
+    XCTAssertEqual(Example.mapValue(for: \.value, input: 0) as? Int, 1, "The keyPath value was not mapped.")
+  }
 }
 
 extension Example: KeyPathQueryable {
@@ -28,4 +32,14 @@ extension Example: KeyPathQueryable {
     \.id: "id",
     \.value: "value"
   ]
+  
+  static func mapValue<I>(for keyPath: KeyPath<Example, I>, input: I) -> Any {
+    switch keyPath {
+    case \.value:
+      let input = input as! Int
+      return input + 1
+    default:
+      return input
+    }
+  }
 }
