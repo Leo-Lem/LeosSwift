@@ -7,6 +7,7 @@ public extension View {
     Binding.Preview(false) { binding in
       Button("[Sheet]") { binding.wrappedValue.toggle() }
         .sheet(isPresented: binding) { self }
+        .onAppear { binding.wrappedValue = true }
     }
     .previewDisplayName("Sheet")
   }
