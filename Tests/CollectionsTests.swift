@@ -3,6 +3,7 @@
 @testable import Concurrency
 import XCTest
 
+@available(iOS 16, macOS 13, *)
 class CollectionsTests: XCTestCase {
   func testAsyncMapping() async throws {
     let items = [1, 2, 3]

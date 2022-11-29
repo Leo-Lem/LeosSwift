@@ -1,6 +1,6 @@
 //	Created by Leopold Lemmermann on 29.10.22.
 
-import Combine
+import protocol Combine.Publisher
 
 @available(iOS 15, macOS 12, *)
 public extension Publisher {

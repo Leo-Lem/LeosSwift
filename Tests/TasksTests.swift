@@ -3,6 +3,7 @@
 @testable import Concurrency
 import XCTest
 
+@available(iOS 16, macOS 13, *)
 final class TasksTests: XCTestCase {
   private var tasks = Tasks()
 
