@@ -2,25 +2,16 @@
 
 @discardableResult
 public func writeError<T, E: Error>(
-  to error: inout E,
-  _ throwing: () throws -> T
-) rethrows -> T {
-  try writeError(into: { error = $0 }, throwing)
-}
-
-@discardableResult
-public func writeError<T, E: Error>(
   to error: inout E?,
   _ throwing: () throws -> T
 ) rethrows -> T {
-  try writeError(into: { error = $0 }, throwing)
+  try writeError(into: { error = $0 }, throwing: throwing)
 }
-
 
 @discardableResult
 public func writeError<T, E: Error>(
   into writeError: (E) -> Void,
-  _ throwing: () throws -> T
+  throwing: () throws -> T
 ) rethrows -> T {
   do {
     return try throwing()
@@ -35,26 +26,17 @@ public func writeError<T, E: Error>(
 @_disfavoredOverload
 @discardableResult
 public func writeError<T, E: Error>(
-  to error: inout E,
-  _ throwing: () async throws -> T
-) async rethrows -> T {
-  try await writeError(into: { error = $0 }, throwing)
-}
-
-@_disfavoredOverload
-@discardableResult
-public func writeError<T, E: Error>(
   to error: inout E?,
   _ throwing: () async throws -> T
 ) async rethrows -> T {
-  try await writeError(into: { error = $0 }, throwing)
+  try await writeError(into: { error = $0 }, throwing: throwing)
 }
 
 @_disfavoredOverload
 @discardableResult
 public func writeError<T, E: Error>(
   into writeError: (E) -> Void,
-  _ throwing: () async throws -> T
+  throwing: () async throws -> T
 ) async rethrows -> T {
   do {
     return try await throwing()

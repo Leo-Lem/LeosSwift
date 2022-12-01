@@ -8,8 +8,8 @@ public func printError<T>(_ throwing: () throws -> T?) -> T? {
     return try throwing()
   } catch {
     print(error.localizedDescription)
+    return nil
   }
-  return nil
 }
 
 // async variants
@@ -21,6 +21,6 @@ public func printError<T>(_ throwing: () async throws -> T) async -> T? {
     return try await throwing()
   } catch {
     print(error.localizedDescription)
+    return nil
   }
-  return nil
 }
