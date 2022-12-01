@@ -2,11 +2,30 @@
 
 import PackageDescription
 
+let package = Package(
+  name: "LeosMisc",
+  platforms: [.iOS(.v13), .macOS(.v10_15)]
+)
+
+// MARK: - (DEPENDENCIES)
+
+let mine = (
+  previews: "Previews",
+  concurrency: "Concurrency"
+)
+
+for name in [mine.previews, mine.concurrency] {
+  package.dependencies.append(.package(url: "https://github.com/Leo-Lem/\(name)", branch: "main"))
+}
+
 // MARK: - (TARGETS)
 
 let lib = Target.target(
   name: "LeosMisc",
-  dependencies: ["Previews"],
+  dependencies: [
+    .byName(name: mine.concurrency),
+    .byName(name: mine.previews)
+  ],
   path: "Sources"
 )
 
@@ -16,23 +35,8 @@ let tests = Target.testTarget(
   path: "Tests"
 )
 
+package.targets = [lib, tests]
+
 // MARK: - (PRODUCTS)
 
-let library = Product.library(
-  name: lib.name,
-  targets: [lib.name]
-)
-
-// MARK: - (DEPENDENCIES)
-
-let previews = Package.Dependency.package(url: "https://github.com/Leo-Lem/Previews", branch: "main")
-
-// MARK: - (PACKAGE)
-
-let package = Package(
-  name: library.name,
-  platforms: [.iOS(.v13), .macOS(.v10_15)],
-  products: [library],
-  dependencies: [previews],
-  targets: [lib, tests]
-)
+package.products.append(.library(name: package.name, targets: [lib.name]))

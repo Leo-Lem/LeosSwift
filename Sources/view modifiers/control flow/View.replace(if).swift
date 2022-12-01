@@ -23,7 +23,7 @@ public extension View {
   ) -> some View {
     Group {
       if condition() {
-        Text(placeholder).foregroundColor(.secondary)
+        Text(placeholder)
       } else {
         self
       }
@@ -36,7 +36,7 @@ public extension View {
   ) -> some View {
     Group {
       if condition() {
-        Text(placeholder).foregroundColor(.secondary)
+        Text(placeholder)
       } else {
         self
       }
