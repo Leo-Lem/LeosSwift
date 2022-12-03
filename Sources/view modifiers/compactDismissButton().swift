@@ -38,11 +38,18 @@ public struct CompactDismissButton: View {
 @available(iOS 16, *)
 struct ToolbarDismissButtonForCompactLayout_Previews: PreviewProvider {
   static var previews: some View {
+    Text("")
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
+      .compactDismissButton()
+      .previewInSheet()
+      .previewDisplayName("Bare")
+    
     NavigationStack {
       Text("")
         .compactDismissButtonToolbar()
     }
-      .previewInSheet()
+    .previewInSheet()
+    .previewDisplayName("Toolbar")
   }
 }
 #endif
