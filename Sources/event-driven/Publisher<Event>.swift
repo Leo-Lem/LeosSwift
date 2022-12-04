@@ -2,6 +2,6 @@
 
 import class Combine.PassthroughSubject
 
-public extension EventDriven {
+public extension EventDriver {
   typealias Publisher<Event> = PassthroughSubject<Event, Never>
 }
