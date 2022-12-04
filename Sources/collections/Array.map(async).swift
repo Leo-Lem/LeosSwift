@@ -5,12 +5,8 @@ public extension Array {
   /// - Parameter transform: The transformation to apply to the array's elements.
   /// - Returns: An array of the transformed values.
   @_disfavoredOverload
-  func map<T>(_ transform: (Element) async throws -> T) async rethrows -> [T] {
-    var values = [T]()
-    for element in self {
-      values.append(try await transform(element))
-    }
-    return values
+  func map<T>(_ transform: @escaping (Element) async throws -> T) async rethrows -> [T] {
+    try await map(transform).collect()
   }
   
   /// Asynchronously maps the array and streams the result (available when transform is non-throwing).
@@ -18,13 +14,7 @@ public extension Array {
   /// - Returns: An AsyncStream of the transformed values.
   @_disfavoredOverload
   func map<T>(_ transform: @escaping (Element) async -> T) -> AsyncStream<T> {
-    AsyncStream { continuation in
-      for element in self {
-        continuation.yield(await transform(element))
-      }
-
-      continuation.finish()
-    }
+    map(transform).printError()
   }
   
   /// Asynchronously maps the array and streams the result (available when transform is throwing).
