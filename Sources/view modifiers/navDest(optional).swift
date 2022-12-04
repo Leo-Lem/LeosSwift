@@ -1,6 +1,5 @@
 //	Created by Leopold Lemmermann on 27.10.22.
 
-#if canImport(UIKit)
 import SwiftUI
 
 public extension View {
@@ -13,4 +12,3 @@ public extension View {
     }
   }
 }
-#endif
