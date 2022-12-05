@@ -3,6 +3,6 @@
 import SwiftUI
 
 public extension View {
-  @inlinable
-  func create<T>(_: T? = nil) -> Self { self }
+  @inlinable func create() -> Self { self }
+  @inlinable func create<T>(_: T?) -> Self { self }
 }
