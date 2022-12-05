@@ -2,12 +2,13 @@
 
 import Foundation
 
+@inlinable
 @discardableResult
 public func printError<T>(_ throwing: () throws -> T?) -> T? {
   do {
     return try throwing()
   } catch {
-    print(error.localizedDescription)
+    debugPrint(error)
     return nil
   }
 }
@@ -15,12 +16,13 @@ public func printError<T>(_ throwing: () throws -> T?) -> T? {
 // async variants
 
 @_disfavoredOverload
+@inlinable
 @discardableResult
-public func printError<T>(_ throwing: () async throws -> T) async -> T? {
+public func printError<T>(_ throwing: () async throws -> T?) async -> T? {
   do {
     return try await throwing()
   } catch {
-    print(error.localizedDescription)
+    debugPrint(error)
     return nil
   }
 }
