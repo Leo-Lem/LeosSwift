@@ -6,3 +6,15 @@ public enum LoadingState<T> {
        loaded([T] = []),
        failed(Error?)
 }
+
+extension LoadingState: Codable where T: Codable {
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.singleValueContainer()
+    try container.encode(wrapped)
+  }
+  
+  public init(from decoder: Decoder) throws {
+    let container = try decoder.singleValueContainer()
+    self = .loaded(try container.decode([T].self))
+  }
+}
