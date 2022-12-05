@@ -1,6 +1,5 @@
 //	Created by Leopold Lemmermann on 04.12.22.
 
-@available(iOS 15, macOS 12, *)
 public extension EventDriver {
   var events: AsyncStream<Event> { eventPublisher.stream }
   

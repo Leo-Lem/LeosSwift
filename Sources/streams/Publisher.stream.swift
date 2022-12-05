@@ -1,26 +1,34 @@
 //	Created by Leopold Lemmermann on 02.12.22.
 
-import protocol Combine.Publisher
-import class Foundation.RunLoop
+import Combine
 
-@available(iOS 15, macOS 12, *)
 public extension Publisher where Failure == Never {
   var stream: AsyncStream<Output> {
     AsyncStream { continuation in
-      for await element in receive(on: RunLoop.main).values { continuation.yield(element) }
-      continuation.finish()
+      let cancellable = self.sink { completion in
+        continuation.finish()
+      } receiveValue: { output in
+        continuation.yield(output)
+      }
+      
+      continuation.onTermination = { _ in cancellable.cancel() }
     }
   }
 }
 
-@available(iOS 15, macOS 12, *)
 public extension Publisher where Failure == Error {
   var stream: AsyncThrowingStream<Output, Error> {
     AsyncThrowingStream { continuation in
-      do {
-        for try await element in receive(on: RunLoop.main).values { continuation.yield(element) }
-        continuation.finish()
-      } catch { continuation.finish(throwing: error) }
+      let cancellable = self.sink { completion in
+        switch completion {
+        case .finished: continuation.finish()
+        case let .failure(error): continuation.finish(throwing: error)
+        }
+      } receiveValue: { output in
+        continuation.yield(output)
+      }
+      
+      continuation.onTermination = { _ in cancellable.cancel() }
     }
   }
 }
