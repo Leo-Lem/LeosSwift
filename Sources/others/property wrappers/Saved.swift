@@ -8,12 +8,15 @@ public struct Saved<Value: Codable> {
 
   public var wrappedValue: Value {
     didSet {
-      try? JSONEncoder().encode(wrappedValue).write(to: url)
+      try? JSONEncoder().encode(wrappedValue).write(to: url, options: .atomic)
     }
   }
 
   public init(wrappedValue: Value, _ key: String) {
-    url = Bundle.main.bundleURL.appendingPathComponent("\(key).json")
+    url = FileManager.default
+      .urls(for: .documentDirectory, in: .userDomainMask)[0]
+      .appendingPathComponent("\(key).json")
+
     self.wrappedValue = (try? JSONDecoder().decode(Value.self, from: try Data(contentsOf: url))) ?? wrappedValue
   }
 }
