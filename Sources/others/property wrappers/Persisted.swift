@@ -10,15 +10,19 @@ public struct Persisted<Value: Codable>: DynamicProperty {
   public var wrappedValue: Value {
     get { value }
     nonmutating set {
-      try? JSONEncoder().encode(newValue).write(to: url)
       value = newValue
+      try? JSONEncoder().encode(wrappedValue).write(to: url, options: .atomic)
     }
   }
 
   public init(wrappedValue: Value, _ key: String) {
-    url = Bundle.main.bundleURL.appendingPathComponent("\(key).json")
+    url = FileManager.default
+      .urls(for: .documentDirectory, in: .userDomainMask)[0]
+      .appendingPathComponent("\(key).json")
+
     _value = State(
       initialValue: (try? JSONDecoder().decode(Value.self, from: try Data(contentsOf: url))) ?? wrappedValue
     )
+    try? JSONEncoder().encode(value).write(to: url, options: .atomic)
   }
 }

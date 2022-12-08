@@ -21,7 +21,7 @@ public struct OptionalPicker<T, ToggleView: View, PickerView: View>: View {
 
   private var binding: (toggle: Binding<Bool>, picker: Binding<T>) {
     (
-      Binding(optional: $optional, defaultValue: defaultValue),
+      Binding(item: $optional, defaultValue: defaultValue),
       Binding(get: { optional ?? defaultValue }, set: { newValue in optional = newValue })
     )
   }

@@ -4,28 +4,16 @@ import SwiftUI
 
 @available(iOS 16, macOS 13, *)
 public extension View {
-  func disabled(
-    _ disabled: Bool,
-    message: LocalizedStringKey,
-    action: (() -> Void)? = nil
-  ) -> some View {
+  func disabled(_ disabled: Bool, message: LocalizedStringKey, action: (() -> Void)? = nil) -> some View {
     self.disabled(disabled, message: Text(message), action: action)
   }
 
   @_disfavoredOverload
-  func disabled<S: StringProtocol>(
-    _ disabled: Bool,
-    message: S,
-    action: (() -> Void)? = nil
-  ) -> some View {
+  func disabled<S: StringProtocol>(_ disabled: Bool, message: S, action: (() -> Void)? = nil) -> some View {
     self.disabled(disabled, message: Text(message), action: action)
   }
 
-  @ViewBuilder func disabled(
-    _ disabled: Bool,
-    message: Text?,
-    action: (() -> Void)? = nil
-  ) -> some View {
+  @ViewBuilder func disabled(_ disabled: Bool, message: Text?, action: (() -> Void)? = nil) -> some View {
     if disabled {
       ZStack {
         self

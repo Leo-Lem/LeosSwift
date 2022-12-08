@@ -5,9 +5,7 @@ import SwiftUI
 public extension View {
   @available(iOS 14, macOS 11, *)
   @inlinable
-  func waitFor<T>(
-    _ optional: T?
-  ) -> some View {
+  func waitFor<T>(_ optional: T?) -> some View {
     waitFor(optional, content: self.create)
   }
   

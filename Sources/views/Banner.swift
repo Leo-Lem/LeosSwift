@@ -2,7 +2,7 @@
 import Previews
 import SwiftUI
 
-@available(iOS 16, macOS 13, *)
+@available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
 public extension View {
   func banner<C: View>(
     isPresented: Binding<Bool>,
@@ -28,7 +28,7 @@ public extension View {
   ) -> some View {
     modifier(
       BannerViewModifier(
-        isPresented: Binding(optional: presenting),
+        isPresented: Binding(item: presenting),
         defaultStyle: defaultStyle,
         dismissAfter: dismissAfter,
         banner: { presenting.wrappedValue.flatMap(content) }

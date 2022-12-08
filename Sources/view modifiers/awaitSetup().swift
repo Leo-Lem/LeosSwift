@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-@available(iOS 15, macOS 12, *)
+@available(iOS 15, macOS 12, tvOS 15, watchOS 8, *)
 public extension View {
   func awaitSetup<T: ObservableObject>(setup: @escaping () async -> T) -> some View {
     awaitSetup(setup: setup, placeholder: { ProgressView() })
@@ -16,7 +16,7 @@ public extension View {
   }
 }
 
-@available(iOS 15, macOS 12, *)
+@available(iOS 15, macOS 12, tvOS 15, watchOS 8, *)
 struct AwaitSetup<T: ObservableObject, Placeholder: View>: ViewModifier {
   @State private var observable: T?
   
