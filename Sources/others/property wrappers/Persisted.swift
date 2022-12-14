@@ -14,6 +14,8 @@ public struct Persisted<Value: Codable>: DynamicProperty {
       try? JSONEncoder().encode(wrappedValue).write(to: url, options: .atomic)
     }
   }
+  
+  public var projectedValue: Binding<Value> { Binding { wrappedValue } set: { wrappedValue = $0 } }
 
   public init(wrappedValue: Value, _ key: String) {
     url = FileManager.default
