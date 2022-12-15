@@ -1,8 +1,7 @@
 //	Created by Leopold Lemmermann on 25.10.22.
 
 public extension Query {
-  struct Options {
-    
+  struct Options: Equatable {
     /// The maximum number of items to be fetched
     public let maxItems: Int?
     

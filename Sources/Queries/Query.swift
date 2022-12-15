@@ -1,6 +1,6 @@
 //	Created by Leopold Lemmermann on 17.10.22.
 
-public struct Query<ResultType> {
+public struct Query<ResultType>: Equatable {
   public let predicateType: PredicateType,
              options: Options
 

@@ -20,12 +20,18 @@ public extension Query {
 }
 
 public extension Query.Predicate {
-  enum Comparison {
+  enum Comparison: Equatable {
     case equal,
          notEqual,
          greater,
          greaterEven,
          lesser,
          lesserEven
+  }
+}
+
+extension Query.Predicate: Equatable {
+  public static func == (lhs: Query<ResultType>.Predicate, rhs: Query<ResultType>.Predicate) -> Bool {
+    lhs.name == rhs.name && lhs.comparison == rhs.comparison && areEqual(lhs: lhs.value, rhs: rhs.value)
   }
 }
