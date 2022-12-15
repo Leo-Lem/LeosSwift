@@ -4,17 +4,8 @@ public enum LoadingState<T> {
   case idle,
        loading([T]),
        loaded([T] = []),
-       failed(Error?)
+       failed(_ message: String? = nil)
 }
 
-extension LoadingState: Codable where T: Codable {
-  public func encode(to encoder: Encoder) throws {
-    var container = encoder.singleValueContainer()
-    try container.encode(wrapped)
-  }
-  
-  public init(from decoder: Decoder) throws {
-    let container = try decoder.singleValueContainer()
-    self = .loaded(try container.decode([T].self))
-  }
-}
+extension LoadingState: Hashable where T: Hashable {}
+extension LoadingState: Codable where T: Codable {}

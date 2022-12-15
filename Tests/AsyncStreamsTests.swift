@@ -129,6 +129,6 @@ final class AsyncStreamsTests: XCTestCase {
     for await _ in pub.stream { valuesAreStreamed.fulfill() }
     streamFinishes.fulfill()
 
-    wait(for: [valuesAreStreamed, streamFinishes], timeout: 0.1)
+    wait(for: [valuesAreStreamed, streamFinishes], timeout: 0.5)
   }
 }

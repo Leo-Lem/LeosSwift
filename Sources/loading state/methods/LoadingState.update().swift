@@ -4,8 +4,6 @@ public extension LoadingState {
   mutating func update(_ elements: T...) { update(elements) }
   mutating func update(_ elements: [T]) {
     switch self {
-    case .loading:
-      self = .loading(elements)
     case .loaded:
       self = .loaded(elements)
     default:

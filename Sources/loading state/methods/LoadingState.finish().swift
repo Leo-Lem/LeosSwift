@@ -1,32 +1,22 @@
 //	Created by Leopold Lemmermann on 15.11.22.
 
 public extension LoadingState {
-  mutating func finish(throwing: () throws -> () = {}) {
+  mutating func finish(throwing: (Self) throws -> () = { _ in }) {
     do {
-      try throwing()
-      
-      if case let .loading(elements) = self {
-        self = .loaded(elements)
-      } else {
-        self = .loaded()
-      }
+      try throwing(self)
+      self = .loaded(wrapped ?? [])
     } catch {
-      self = .failed(error)
+      self = .failed(error.localizedDescription)
     }
   }
-  
+
   @_disfavoredOverload
-  mutating func finish(throwing: () async throws -> () = {}) async {
+  mutating func finish(throwing: (Self) async throws -> () = { _ in }) async {
     do {
-      try await throwing()
-      
-      if case let .loading(elements) = self {
-        self = .loaded(elements)
-      } else {
-        self = .loaded()
-      }
+      try await throwing(self)
+      self = .loaded(wrapped ?? [])
     } catch {
-      self = .failed(error)
+      self = .failed(error.localizedDescription)
     }
   }
 }

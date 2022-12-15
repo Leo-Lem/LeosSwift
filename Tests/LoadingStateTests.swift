@@ -9,9 +9,8 @@ final class LoadingStateTests: XCTestCase {
 
     let element = "Hello"
     state.add(element)
-    state.wrapped?.append(element)
 
-    XCTAssertEqual(state, .loading([element, element]), "Loading State is not loading with the correct elements.")
+    XCTAssertEqual(state, .loading([element]), "Loading State is not loading with the correct elements.")
   }
 
   func testSettingLoadedRetainsElements() {
@@ -41,13 +40,22 @@ final class LoadingStateTests: XCTestCase {
     var state = LoadingState<String>.idle
 
     let error = ExampleError.sumTingWong
-    state.finish { throw error }
+    state.finish { _ in throw error }
 
     if case let .failed(otherError) = state {
-      XCTAssertEqual(error, otherError as? ExampleError, "Loading State does not hold specific error.")
+      XCTAssertEqual(error.localizedDescription, otherError, "Loading State does not hold specific error.")
     } else {
       XCTFail("Loading State is not failed.")
     }
+  }
+  
+  func testWrapped() {
+    var state = LoadingState<String>.idle
+    
+    state.wrapped = ["First", "Second"]
+    state.wrapped?.append("Third")
+    
+    XCTAssertEqual(state.wrapped, ["First", "Second", "Third"])
   }
 }
 

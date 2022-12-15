@@ -6,8 +6,6 @@ public extension LoadingState {
     switch self {
     case let .loading(array):
       self = .loading(array + elements)
-    case .loaded:
-      self = .loading(elements)
     default:
       self = .loading(elements)
     }

@@ -11,11 +11,7 @@ public extension LoadingState {
       }
     }
     set {
-      if let newValue = newValue {
-        update(newValue)
-      } else {
-        self = .idle
-      }
+      if let newValue { update(newValue) } else { self = .idle }
     }
   }
 }
