@@ -1,5 +1,6 @@
 //	Created by Leopold Lemmermann on 21.10.22.
 
+@_exported import Queries
 import Foundation
 
 public protocol KeyPathQueryable {

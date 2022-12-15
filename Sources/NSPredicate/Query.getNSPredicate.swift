@@ -1,7 +1,7 @@
 //	Created by Leopold Lemmermann on 17.10.22.
 
 import CoreData
-import Queries
+@_exported import Queries
 
 public extension Query {
   func getNSPredicate() -> NSPredicate {
