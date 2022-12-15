@@ -7,26 +7,18 @@ public extension Query {
   func getNSPredicate() -> NSPredicate {
     switch predicateType {
     case let .bool(bool):
-      return NSPredicate(value: bool)
+      return bool.nsPredicate
 
     case let .predicate(predicate):
-      return NSPredicate(format: predicate.formatString, argumentArray: [predicate.value])
+      return predicate.nsPredicate
 
     case let .predicates(predicates, compound):
-      if let predicate = predicates.first {
-        var formatString = predicate.formatString
-        var values = [predicate.value]
-
-        for predicate in predicates.dropFirst() {
-          formatString += " \(compound.symbol) "
-          formatString += predicate.formatString
-          values.append(predicate.value)
-        }
-
-        return NSPredicate(format: formatString, argumentArray: values)
+      switch compound {
+      case .and:
+        return NSCompoundPredicate(type: .and, subpredicates: predicates.map(\.nsPredicate))
+      case .or:
+        return NSCompoundPredicate(type: .or, subpredicates: predicates.map(\.nsPredicate))
       }
     }
-
-    return NSPredicate(value: false)
   }
 }

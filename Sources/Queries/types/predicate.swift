@@ -21,12 +21,9 @@ public extension Query {
 
 public extension Query.Predicate {
   enum Comparison: Equatable {
-    case equal,
-         notEqual,
-         greater,
-         greaterEven,
-         lesser,
-         lesserEven
+    case equal, notEqual
+    case greater, lesser
+    case greaterEven, lesserEven
   }
 }
 
