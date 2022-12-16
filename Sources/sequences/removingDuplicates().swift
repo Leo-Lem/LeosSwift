@@ -3,14 +3,12 @@
 public extension Sequence {
   /// Removes all duplicates from the sequence.
   /// - Returns: An array without duplicates.
-  @inlinable func removingDuplicates<T: Equatable>(
-    by accessor: (Element) -> T
-  ) -> [Element] {
-    reduce([]) { items, next in
-      let duplicate = items.contains { accessor($0) == accessor(next) }
-      
-      return duplicate ? items : items + [next]
+  @inlinable func removingDuplicates<T: Equatable>(by accessor: (Element) -> T) -> [Element] {
+    var elements = [Element]()
+    for element in self where !elements.contains(where: { accessor($0) == accessor(element) }) {
+      elements.append(element)
     }
+    return elements
   }
 
   /// Removes all duplicates from the sequence.
