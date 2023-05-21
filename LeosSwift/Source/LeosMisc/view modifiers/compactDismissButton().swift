@@ -1,7 +1,7 @@
 //	Created by Leopold Lemmermann on 29.11.22.
 
 #if os(iOS)
-import Previews
+//import Previews
 import SwiftUI
 
 @available(iOS 15, *)
@@ -35,21 +35,21 @@ public struct CompactDismissButton: View {
 
 // MARK: - (PREVIEWS)
 
-@available(iOS 16, *)
-struct ToolbarDismissButtonForCompactLayout_Previews: PreviewProvider {
-  static var previews: some View {
-    Text("")
-      .frame(maxWidth: .infinity, maxHeight: .infinity)
-      .compactDismissButton()
-      .previewInSheet()
-      .previewDisplayName("Bare")
-    
-    NavigationStack {
-      Text("")
-        .compactDismissButtonToolbar()
-    }
-    .previewInSheet()
-    .previewDisplayName("Toolbar")
-  }
-}
+//@available(iOS 16, *)
+//struct ToolbarDismissButtonForCompactLayout_Previews: PreviewProvider {
+//  static var previews: some View {
+//    Text("")
+//      .frame(maxWidth: .infinity, maxHeight: .infinity)
+//      .compactDismissButton()
+//      .previewInSheet()
+//      .previewDisplayName("Bare")
+//    
+//    NavigationStack {
+//      Text("")
+//        .compactDismissButtonToolbar()
+//    }
+//    .previewInSheet()
+//    .previewDisplayName("Toolbar")
+//  }
+//}
 #endif

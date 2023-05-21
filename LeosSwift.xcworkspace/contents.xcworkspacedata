@@ -10,13 +10,6 @@
    <FileRef
       location = "group:.gitignore">
    </FileRef>
-   <Group
-      location = "group:.github/workflows"
-      name = "workflows">
-      <FileRef
-         location = "group:/Users/leolem/dev/packages/libraries/.github/workflows/misc.yml">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:LeosSwift">
    </FileRef>
@@ -31,8 +24,5 @@
    </FileRef>
    <FileRef
       location = "group:queries">
-   </FileRef>
-   <FileRef
-      location = "group:LeosSwift/Test/LeosMisc.xctestplan">
    </FileRef>
 </Workspace>
