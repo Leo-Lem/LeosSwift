@@ -13,20 +13,24 @@ package.dependencies = []
 
 // MARK: - (TARGETS)
 
+let concurrency = Target.target(name: "Concurrency")
+let errors = Target.target(name: "Errors")
 let misc = Target.target(name: "LeosMisc")
+let previews = Target.target(name: "Previews")
+let queries = Target.target(name: "Queries")
 
-package.targets = [misc]
+let libs = [concurrency, errors, misc, previews, queries]
+
+package.targets = libs
   .flatMap {[
     $0,
     .testTarget(
-      name: "\(misc.name)Tests",
-      dependencies: [.target(name: misc.name)],
-      path: "Test/\(misc.name)"
+      name: "\($0.name)Tests",
+      dependencies: [.target(name: $0.name)],
+      path: "Test/\($0.name)"
     )
   ]}
 
 // MARK: - (PRODUCTS)
 
-package.products = [
-  .library(name: misc.name, targets: [misc.name])
-]
+package.products = libs.map { .library(name: $0.name, targets: [$0.name]) }

@@ -13,16 +13,4 @@
    <FileRef
       location = "group:LeosSwift">
    </FileRef>
-   <FileRef
-      location = "group:concurrency">
-   </FileRef>
-   <FileRef
-      location = "group:errors">
-   </FileRef>
-   <FileRef
-      location = "group:previews">
-   </FileRef>
-   <FileRef
-      location = "group:queries">
-   </FileRef>
 </Workspace>

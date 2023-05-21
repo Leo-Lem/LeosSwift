@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "LeosMisc"
-               BuildableName = "LeosMisc"
-               BlueprintName = "LeosMisc"
+               BlueprintIdentifier = "Concurrency"
+               BuildableName = "Concurrency"
+               BlueprintName = "Concurrency"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,7 +29,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Test/LeosMisc.xctestplan">
+            reference = "container:Test/Concurrency.xctestplan"
+            default = "YES">
          </TestPlanReference>
       </TestPlans>
    </TestAction>
@@ -53,9 +54,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "LeosMisc"
-            BuildableName = "LeosMisc"
-            BlueprintName = "LeosMisc"
+            BlueprintIdentifier = "Concurrency"
+            BuildableName = "Concurrency"
+            BlueprintName = "Concurrency"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
