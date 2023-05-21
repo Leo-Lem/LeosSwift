@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "group:LICENSE">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:.gitignore">
+   </FileRef>
+   <Group
+      location = "group:.github/workflows"
+      name = "workflows">
+      <FileRef
+         location = "group:/Users/leolem/dev/packages/libraries/.github/workflows/misc.yml">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:LeosSwift">
+   </FileRef>
+   <FileRef
+      location = "group:concurrency">
+   </FileRef>
+   <FileRef
+      location = "group:errors">
+   </FileRef>
+   <FileRef
+      location = "group:previews">
+   </FileRef>
+   <FileRef
+      location = "group:queries">
+   </FileRef>
+   <FileRef
+      location = "group:LeosSwift/Test/LeosMisc.xctestplan">
+   </FileRef>
 </Workspace>

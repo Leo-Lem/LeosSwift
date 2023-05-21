@@ -1,0 +1,54 @@
+name: LeosMisc
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - LeosSwift/Package.swift
+      - LeosSwift/Source/LeosMisc/**
+      - LeosSwift/Test/LeosMisc/**
+  pull_request:
+    branches: ["main"]
+    paths:
+      - LeosSwift/Package.swift
+      - LeosSwift/Source/LeosMisc/**
+      - LeosSwift/Test/LeosMisc/**
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  SCHEME: "LeosMisc"
+  PACKAGE: "LeosSwift"
+
+jobs:
+  Swift:
+    runs-on: macos-latest
+    steps:
+      - uses: swift-actions/setup-swift@v1
+        with:
+          swift-version: "5"
+      - uses: actions/checkout@v3
+      - name: Build and test (Swift)
+        run: swift test "$PACKAGE"
+
+  iOS:
+    runs-on: macos-latest
+    steps:
+      - uses: swift-actions/setup-swift@v1
+        with:
+          swift-version: "5"
+      - uses: actions/checkout@v3
+      - name: Build and test ( iOS)
+        run: xcodebuild test -scheme "$SCHEME" -destination "platform=iOS Simulator,OS=16.0,name=iPhone SE (3rd generation)"
+
+  macOS:
+    runs-on: macos-latest
+    steps:
+      - uses: swift-actions/setup-swift@v1
+        with:
+          swift-version: "5"
+      - uses: actions/checkout@v3
+      - name: Build and test ( macOS)
+        run: xcodebuild test -scheme "$SCHEME" -destination "platform=macOS,arch=x86_64"
