@@ -20,40 +20,68 @@
          location = "group:LeosMisc"
          name = "LeosMisc">
          <Group
+            location = "group:/Users/leolem/dev/packages/libraries/Source/LeosMisc/operators"
+            name = "operators">
+            <FileRef
+               location = "group:?? (async).swift">
+            </FileRef>
+            <FileRef
+               location = "group:OptionalAssignment.swift">
+            </FileRef>
+            <FileRef
+               location = "group:replaceIfEmpty(with).swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:/Users/leolem/dev/packages/libraries/Source/LeosMisc/property wrappers"
+            name = "property wrappers">
+            <FileRef
+               location = "group:Passthrough.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Saved.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ObjectSceneStorage.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Persisted.swift">
+            </FileRef>
+            <FileRef
+               location = "group:CodableAppStorage.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:memoize"
+            name = "memoize">
+            <FileRef
+               location = "group:memoize&lt;I&gt;.swift">
+            </FileRef>
+            <FileRef
+               location = "group:memoize&lt;I1,I2&gt;.swift">
+            </FileRef>
+            <FileRef
+               location = "group:NSCache-wrapped.swift">
+            </FileRef>
+            <FileRef
+               location = "group:memoize&lt;I1,I2,I3&gt;.swift">
+            </FileRef>
+         </Group>
+         <Group
             location = "group:others"
             name = "others">
-            <Group
-               location = "group:operators"
-               name = "operators">
-               <FileRef
-                  location = "group:?? (async).swift">
-               </FileRef>
-               <FileRef
-                  location = "group:OptionalAssignment.swift">
-               </FileRef>
-               <FileRef
-                  location = "group:replaceIfEmpty(with).swift">
-               </FileRef>
-            </Group>
             <FileRef
                location = "group:Binding(item).swift">
             </FileRef>
-            <Group
-               location = "group:property wrappers"
-               name = "property wrappers">
-               <FileRef
-                  location = "group:Passthrough.swift">
-               </FileRef>
-               <FileRef
-                  location = "group:Saved.swift">
-               </FileRef>
-               <FileRef
-                  location = "group:ObjectSceneStorage.swift">
-               </FileRef>
-               <FileRef
-                  location = "group:Persisted.swift">
-               </FileRef>
-            </Group>
+            <FileRef
+               location = "group:Calendar.start|end.swift">
+            </FileRef>
+            <FileRef
+               location = "group:CombineHashable.swift">
+            </FileRef>
+            <FileRef
+               location = "group:DataFile.swift">
+            </FileRef>
          </Group>
          <Group
             location = "group:sequences"
@@ -78,22 +106,19 @@
             location = "group:views"
             name = "views">
             <Group
-               location = "group:date range picker"
-               name = "date range picker">
+               location = "group:custom tab view"
+               name = "custom tab view">
                <FileRef
-                  location = "group:DRP-MonthYear.swift">
+                  location = "group:TabBar.swift">
                </FileRef>
                <FileRef
-                  location = "group:DRP-Year.swift">
+                  location = "group:ExampleTabs.swift">
                </FileRef>
                <FileRef
-                  location = "group:DateRangePicker.swift">
+                  location = "group:TabView.swift">
                </FileRef>
                <FileRef
-                  location = "group:DRP-Day.swift">
-               </FileRef>
-               <FileRef
-                  location = "group:DRP-Alltime.swift">
+                  location = "group:Tabbable.swift">
                </FileRef>
             </Group>
             <FileRef
@@ -112,18 +137,16 @@
          <Group
             location = "group:view modifiers"
             name = "view modifiers">
-            <FileRef
-               location = "group:disabled(message).swift">
-            </FileRef>
-            <FileRef
-               location = "group:waitFor().swift">
-            </FileRef>
-            <FileRef
-               location = "group:glare().swift">
-            </FileRef>
-            <FileRef
-               location = "group:awaitSetup().swift">
-            </FileRef>
+            <Group
+               location = "container:"
+               name = "loading">
+               <FileRef
+                  location = "group:/Users/leolem/dev/packages/libraries/waitFor().swift">
+               </FileRef>
+               <FileRef
+                  location = "group:/Users/leolem/dev/packages/libraries/awaitSetup().swift">
+               </FileRef>
+            </Group>
             <Group
                location = "group:control flow"
                name = "control flow">
@@ -140,17 +163,33 @@
                   location = "group:View.forEach().swift">
                </FileRef>
             </Group>
+            <Group
+               location = "container:"
+               name = "navigation">
+               <FileRef
+                  location = "group:/Users/leolem/dev/packages/libraries/navDest(optional).swift">
+               </FileRef>
+               <FileRef
+                  location = "group:/Users/leolem/dev/packages/libraries/compactDismissButton().swift">
+               </FileRef>
+               <FileRef
+                  location = "group:/Users/leolem/dev/packages/libraries/embedInNavigationStack().swift">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:disabled(message).swift">
+            </FileRef>
+            <FileRef
+               location = "group:glare().swift">
+            </FileRef>
+            <FileRef
+               location = "group:/Users/leolem/dev/packages/libraries/Source/LeosMisc/view modifiers/animation(Hashable...).swift">
+            </FileRef>
+            <FileRef
+               location = "group:sheetBackground.swift">
+            </FileRef>
             <FileRef
                location = "group:create().swift">
-            </FileRef>
-            <FileRef
-               location = "group:navDest(optional).swift">
-            </FileRef>
-            <FileRef
-               location = "group:compactDismissButton().swift">
-            </FileRef>
-            <FileRef
-               location = "group:embedInNavigationStack().swift">
             </FileRef>
          </Group>
       </Group>
@@ -387,6 +426,15 @@
       <Group
          location = "group:LeosMisc"
          name = "LeosMisc">
+         <FileRef
+            location = "group:calendar-tests.swift">
+         </FileRef>
+         <FileRef
+            location = "group:DataFile-tests.swift">
+         </FileRef>
+         <FileRef
+            location = "group:OptionalAssignment-tests.swift">
+         </FileRef>
          <FileRef
             location = "group:Tests.swift">
          </FileRef>

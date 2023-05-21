@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
   name: "LeosSwift",
-  platforms: [.iOS(.v13), .macOS(.v10_15)]
+  platforms: [.iOS(.v16), .macOS(.v12)]
 )
 
 // MARK: - (DEPENDENCIES)
@@ -15,9 +15,10 @@ package.dependencies = []
 
 let concurrency = Target.target(name: "Concurrency")
 let errors = Target.target(name: "Errors")
-let misc = Target.target(name: "LeosMisc")
 let previews = Target.target(name: "Previews")
 let queries = Target.target(name: "Queries")
+
+let misc = Target.target(name: "LeosMisc", dependencies: [.byName(name: previews.name)])
 
 let libs = [concurrency, errors, misc, previews, queries]
 

@@ -1,5 +1,5 @@
 
-// import Previews
+import Previews
 import SwiftUI
 
 @available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
@@ -102,19 +102,19 @@ struct BannerViewModifier<Banner: View>: ViewModifier {
 
 // MARK: - (PREVIEWS)
 
-// #if DEBUG
-//  @available(iOS 16, macOS 13, *)
-//  struct Banner_Previews: PreviewProvider {
-//    static var previews: some View {
-//      Group {
-//        Binding.Preview(false) { binding in
-//          Button("[ Banner ]") { binding.wrappedValue.toggle() }
-//            .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .banner(isPresented: binding, dismissAfter: .seconds(3)) {
-//              Text("I'm a banner!")
-//            }
-//        }
-//      }
-//    }
-//  }
-// #endif
+#if DEBUG
+  @available(iOS 16, macOS 13, *)
+  struct Banner_Previews: PreviewProvider {
+    static var previews: some View {
+      Group {
+        Binding.Preview(false) { binding in
+          Button("[ Banner ]") { binding.wrappedValue.toggle() }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .banner(isPresented: binding, dismissAfter: .seconds(3)) {
+              Text("I'm a banner!")
+            }
+        }
+      }
+    }
+  }
+#endif
