@@ -3,6 +3,17 @@
 import SwiftUI
 
 public extension View {
+  func replaceWhenEmpty<C: Collection>(_ collection: C) -> some View {
+    replace(if: collection.isEmpty) { Text("NO_DATA").font(.largeTitle) }
+  }
+
+  func replaceWhileLoading(when isLoading: Bool) -> some View {
+    replace(if: isLoading) {
+      ProgressView()
+        .accessibilityValue("LOADING")
+    }
+  }
+
   func replace<Content: View>(
     if condition: @autoclosure () -> Bool,
     placeholder: () -> Content
@@ -29,7 +40,7 @@ public extension View {
       }
     }
   }
-  
+
   func replace(
     if condition: @autoclosure () -> Bool,
     placeholder: LocalizedStringKey
